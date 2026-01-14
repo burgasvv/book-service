@@ -1,0 +1,195 @@
+
+
+
+### Security Requests
+
+
+
+###
+GET /api/v1/security/csrf-token
+Host: localhost:9000
+Accept: application/json
+
+
+
+### Identity Requests
+
+
+
+###
+GET /api/v1/identities
+Host: localhost:9000
+Accept: application/json
+Authorization: Basic burgasvv@gmail.com burgasvv
+
+###
+GET /api/v1/identities/by-id?identityId=e66b16fd-59a7-400f-94a9-6ed6b97a79d9
+Host: localhost:9000
+Accept: application/json
+Authorization: Basic burgasvv@gmail.com burgasvv
+
+###
+POST /api/v1/identities/create
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "authority": "ADMIN",
+    "username": "zagor",
+    "password": "zagor",
+    "email": "zagor@gmail.com",
+    "firstname": "Zagorulko",
+    "lastname": "Boris",
+    "patronymic": "Urevich",
+    "enabled": true
+}
+
+###
+PUT /api/v1/identities/update
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "id": "eb36ec81-7095-4185-8519-57df3b606e5c",
+    "patronymic": "Ur'evich"
+}
+
+###
+DELETE /api/v1/identities/delete?identityId=eb36ec81-7095-4185-8519-57df3b606e5c
+Host: localhost:9000
+Accept: application/json
+
+###
+POST /api/v1/identities/add-book?identityId=5d84ca34-b246-4bae-8697-a5eadcc1a70e&bookId=6a552453-517b-461b-808e-e5fbe1b6e992
+Host: localhost:9000
+Accept: application/json
+
+###
+DELETE /api/v1/identities/remove-book?identityId=5d84ca34-b246-4bae-8697-a5eadcc1a70e&bookId=6a552453-517b-461b-808e-e5fbe1b6e992
+Host: localhost:9000
+Accept: application/json
+
+
+
+### Author Requests
+
+
+
+###
+GET /api/v1/authors
+Host: localhost:9000
+Accept: application/json
+
+###
+GET /api/v1/authors/by-id?authorId=7640f551-4a6a-4312-afb1-2aed9e2c7b3c
+Host: localhost:9000
+Accept: application/json
+
+###
+POST /api/v1/authors/create
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "firstname": "Руссович",
+    "lastname": "Игорь",
+    "patronymic": "Викторович",
+    "about": "Описание автора Руссовича Игоря Викторовича"
+}
+
+###
+PUT /api/v1/authors/update
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "id": "a908b689-9a61-4299-98e3-22605004d406",
+    "firstname": "Паренкович"
+}
+
+###
+DELETE /api/v1/authors/delete?authorId=a908b689-9a61-4299-98e3-22605004d406
+Host: localhost:9000
+Accept: application/json
+
+
+
+### Publisher Requests
+
+
+
+###
+GET /api/v1/publishers
+Host: localhost:9000
+Accept: application/json
+
+###
+GET /api/v1/publishers/by-id?publisherId=52df07e0-93d9-4f1b-804c-5d33ffb51ede
+Host: localhost:9000
+Accept: application/json
+
+###
+POST /api/v1/publishers/create
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "1С",
+    "description": "Описание издателя 1С"
+}
+
+###
+PUT /api/v1/publishers/update
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "id": "2a5bb431-1cc0-4398-a9c1-eb7d315349db",
+    "name": "1СЕ"
+}
+
+###
+DELETE /api/v1/publishers/delete?publisherId=2a5bb431-1cc0-4398-a9c1-eb7d315349db
+Host: localhost:9000
+Accept: application/json
+
+
+
+### Book Requests
+
+
+
+###
+GET /api/v1/books
+Host: localhost:9000
+Accept: application/json
+
+###
+GET /api/v1/books/by-id?bookId=6a552453-517b-461b-808e-e5fbe1b6e992
+Host: localhost:9000
+Accept: application/json
+
+###
+POST /api/v1/books/create
+Host: localhost:9000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Долгая Дорога",
+    "authorId": "7640f551-4a6a-4312-afb1-2aed9e2c7b3c",
+    "publisherId": "52df07e0-93d9-4f1b-804c-5d33ffb51ede",
+    "about": "Описание книги Долгая Дорога",
+    "price": 660.50
+}
+
+###
+DELETE /api/v1/books/delete-document?bookId=6a552453-517b-461b-808e-e5fbe1b6e992
+Host: localhost:9000
+Accept: application/json
