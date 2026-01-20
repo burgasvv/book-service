@@ -6,6 +6,7 @@ import org.burgas.bookservice.dto.identity.IdentityRequest;
 import org.burgas.bookservice.dto.identity.IdentityShortResponse;
 import org.burgas.bookservice.entity.book.Book;
 import org.burgas.bookservice.entity.identity.Identity;
+import org.burgas.bookservice.kafka.KafkaProducer;
 import org.burgas.bookservice.mapper.BookMapper;
 import org.burgas.bookservice.mapper.IdentityMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +26,7 @@ public class IdentityService implements CrudService<IdentityRequest, IdentitySho
     private final IdentityMapper identityMapper;
     private final BookMapper bookMapper;
     private final PasswordEncoder passwordEncoder;
+    private final KafkaProducer kafkaProducer;
 
     @Override
     public List<IdentityShortResponse> findAll() {
@@ -37,10 +39,12 @@ public class IdentityService implements CrudService<IdentityRequest, IdentitySho
 
     @Override
     public IdentityFullResponse findById(UUID id) {
-        return this.identityMapper.getIdentityRepository()
+        IdentityFullResponse identityFullResponse = this.identityMapper.getIdentityRepository()
                 .findById(id)
                 .map(this.identityMapper::toFullResponse)
                 .orElseThrow(() -> new IllegalArgumentException("Identity not found"));
+        this.kafkaProducer.sendIdentityFullResponse(identityFullResponse);
+        return identityFullResponse;
     }
 
     @Override
