@@ -4,10 +4,7 @@ import org.burgas.bookservice.dto.book.BookRequest;
 import org.burgas.bookservice.entity.author.Author;
 import org.burgas.bookservice.entity.book.Book;
 import org.burgas.bookservice.entity.publisher.Publisher;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
@@ -25,6 +22,8 @@ import java.util.List;
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+@TestClassOrder(value = ClassOrderer.OrderAnnotation.class)
+@Order(value = 3)
 public class BookRouterTest {
 
     @Autowired
