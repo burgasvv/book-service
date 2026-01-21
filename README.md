@@ -13,6 +13,7 @@
 * Spring Data JPA
 * Postgresql
 * Kafka
+* JUnit
 
 ## Описание
     API интерфейс для организации работы с книгами и библиотекой
