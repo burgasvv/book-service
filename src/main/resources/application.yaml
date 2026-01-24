@@ -6,7 +6,7 @@ spring:
     name: book-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:6000/book_service_db
+    url: jdbc:postgresql://postgres:5432/book_service_db
     username: postgres
     password: postgres
   jpa:
@@ -25,9 +25,11 @@ spring:
       max-file-size: 1000MB
       max-request-size: 10000MB
   liquibase:
-    url: jdbc:postgresql://localhost:6000/book_service_db
+    url: jdbc:postgresql://postgres:5432/book_service_db
     user: postgres
     password: postgres
+  kafka:
+    bootstrap-servers: "kafka:9092"
 logging:
   level:
     org.springframework.transaction.interceptor: TRACE

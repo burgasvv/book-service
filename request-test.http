@@ -23,7 +23,7 @@ Accept: application/json
 Authorization: Basic burgasvv@gmail.com burgasvv
 
 ###
-GET /api/v1/identities/by-id?identityId=e66b16fd-59a7-400f-94a9-6ed6b97a79d9
+GET /api/v1/identities/by-id?identityId=3d71003f-19b8-4a59-98a3-0702410d3adf
 Host: localhost:9000
 Accept: application/json
 Authorization: Basic burgasvv@gmail.com burgasvv
